@@ -1,0 +1,9 @@
+/* Basic canvas element to display the scene
+This will position the canvas in the left-top corner,
+because by default the body will have 8px of margin.
+ */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
