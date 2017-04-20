@@ -30,3 +30,33 @@ document.body.appendChild(renderer.domElement);
 
   //The fourth line defines the scene, no arguments needed.
 var scene = new THREE.Scene;
+
+
+/* 3) STEP 3 Adding a Cube
+In Three.js the objects that are being drawn on the screen are called meshes.
+Each mesh has to have its own geometry and material.
+  --> Geometry is a set of points that need to be connected in order to create the object.
+  --> Material is simply the paint that will cover the object, the texture */
+
+  //First we create the geometry, the cube with width, height and depth
+var cubeGeometry = new THREE.CubeGeometry(100, 100, 100);
+
+  //Second: We define the cube's material.
+  //There are a few material types in Three.js, but this time we will use the THREE.MeshLambertMaterial,
+  //since we want to have some lighting later (this material uses Lambert's algorithm for light calculations).
+  // Here, we only use color, which is passed as a hexadecimal number.
+
+var cubeMaterial = new THREE.MeshLambertMaterial({ color: 0x1ec876 });
+
+  //Third: We instantiate the mesh by using the geometry and the material
+var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+
+  //Forth: we rotate the cube by 45 degrees on the Y axis, to make it look better.
+  //We have to change degrees to radians, which is handled by the equation: Math.PI * 45 / 180.
+cube.rotation.y = Math.PI * 45 / 180;
+
+  //Finally we add the cube to the scene
+scene.add(cube);
+
+  // At this point you can open the index.html file but you will see nothing, because the mesh is added to the scene but
+  // It needs to be RENDERED. That will be done on the next Step
